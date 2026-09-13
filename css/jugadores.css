@@ -1,0 +1,301 @@
+/* ==========================================================================
+   KOA — JUGADORES / ROSTER
+   Componente de tarjeta de jugador (reutilizado en el preview del Home y en
+   la grilla completa de pages/jugadores.html) + estilos propios de la página.
+   ========================================================================== */
+
+.roster {
+  background-color: var(--panel);
+  padding-block: var(--space-9);
+}
+
+.roster-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+}
+
+.roster__foot {
+  margin-top: var(--space-8);
+  text-align: center;
+}
+
+/* ---- Tarjeta de jugador (compartida) ---- */
+
+.player-card {
+  position: relative;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+  overflow: hidden;
+  transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.player-card:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-4px);
+}
+
+.player-card__media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--panel);
+}
+
+.player-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.player-card__tag {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  padding: 5px 12px;
+  background: var(--flame);
+  color: #1a1000;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  letter-spacing: 0.04em;
+  clip-path: polygon(6px 0, 100% 0, 100% 100%, 0 100%, 0 6px);
+}
+
+.player-card__body {
+  padding: var(--space-5);
+}
+
+.player-card__name {
+  font-size: 1.3rem;
+  margin-bottom: var(--space-3);
+}
+
+.player-card__mains {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.player-card__main-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  font-size: var(--fs-sm);
+  color: var(--ink-muted);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.player-card__main-chip strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.player-card__extra {
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+  margin-bottom: var(--space-4);
+}
+
+.player-card__social {
+  display: flex;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--line);
+}
+
+.player-card__social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  color: var(--ink-muted);
+  border: 1px solid var(--line);
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+.player-card__social a:hover {
+  color: var(--ember);
+  border-color: var(--ember);
+}
+
+.player-card__social svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ---- Tarjeta "cupo abierto" (sin fotografía real) ---- */
+
+.player-card--open {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  background: transparent;
+  border: 1px dashed var(--line-strong);
+  clip-path: none;
+  text-align: center;
+  padding: var(--space-7) var(--space-5);
+}
+
+.player-card--open:hover {
+  border-color: var(--ember);
+  transform: none;
+}
+
+.player-card--open .player-card__open-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--line-strong);
+  color: var(--ink-muted);
+  margin-bottom: var(--space-4);
+  font-size: 1.5rem;
+  font-family: var(--font-display);
+}
+
+.player-card--open .player-card__open-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--ink);
+  margin-bottom: var(--space-2);
+}
+
+.player-card--open .player-card__open-desc {
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+  max-width: 28ch;
+}
+
+/* ==========================================================================
+   PÁGINA — pages/jugadores.html
+   ========================================================================== */
+
+.roster-page {
+  background-color: var(--panel);
+  padding-block: var(--space-9);
+}
+
+.roster-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+}
+
+.roster-filters__btn {
+  padding: 10px 22px;
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink-muted);
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+
+.roster-filters__btn:hover {
+  color: var(--ink);
+  border-color: var(--line-strong);
+}
+
+.roster-filters__btn.is-active {
+  color: #1a1000;
+  background: var(--flame);
+  border-color: transparent;
+}
+
+/* ==========================================================================
+   RESPONSIVE — ROSTER
+   ========================================================================== */
+
+@media (max-width: 1100px) {
+  .roster-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 860px) {
+  .roster-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .roster,
+  .roster-page {
+    padding-block: var(--space-8);
+  }
+}
+
+@media (max-width: 520px) {
+  .roster-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .player-card__media {
+    aspect-ratio: 16 / 11;
+  }
+}
+
+/* ==========================================================================
+   DESARROLLO COMPETITIVO — pages/jugadores.html
+   Sección adicional sobre la preparación de los jugadores dentro de KOA.
+   ========================================================================== */
+
+.player-development {
+  background-color: var(--void);
+  padding-block: var(--space-9);
+}
+
+.player-development__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.player-development__media img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  clip-path: polygon(24px 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%, 0 24px);
+  box-shadow: var(--shadow-md);
+}
+
+.player-development__title {
+  font-size: clamp(1.8rem, 1.5rem + 1.2vw, 2.3rem);
+  margin-bottom: var(--space-4);
+}
+
+.player-development__text {
+  color: var(--ink-muted);
+}
+
+@media (max-width: 992px) {
+  .player-development__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .player-development__media {
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 768px) {
+  .player-development {
+    padding-block: var(--space-8);
+  }
+}

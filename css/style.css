@@ -1,0 +1,568 @@
+/* ==========================================================================
+   KOA — SISTEMA VISUAL BASE
+   Identidad: competitiva, moderna, elegante, oscura y de alto contraste.
+   La paleta de acento (dorado → rojo) se extrae directamente del isotipo
+   de KOA para que la identidad web nazca del logo real de la organización.
+   ========================================================================== */
+
+:root {
+  /* ---- Color: superficies ---- */
+  --void: #0a0a0d;        /* fondo base, negro con matiz frío */
+  --panel: #131318;       /* fondo elevado / secciones alternas */
+  --panel-2: #1b1b22;     /* tarjetas y marcos */
+  --line: rgba(244, 243, 239, 0.1);   /* bordes sutiles */
+  --line-strong: rgba(244, 243, 239, 0.18);
+
+  /* ---- Color: texto ---- */
+  --ink: #f4f3ef;         /* texto principal, blanco cálido */
+  --ink-muted: #9a9aa6;   /* texto secundario, gris frío */
+
+  /* ---- Color: acento (tomado del isotipo KOA) ---- */
+  --ember: #feba17;       /* dorado */
+  --blaze: #ef2b2b;       /* rojo */
+  --flame: linear-gradient(100deg, #f5e37a 0%, #feba17 42%, #ff5a3c 72%, #ef2b2b 100%);
+
+  /* ---- Tipografía ---- */
+  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --fs-sm: 0.9rem;
+  --fs-base: 1rem;
+  --fs-md: 1.125rem;
+  --fs-lg: 1.25rem;
+
+  /* ---- Espaciado ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  /* ---- Layout ---- */
+  --container-max: 1220px;
+  --container-pad: clamp(20px, 5vw, 64px);
+
+  /* ---- Forma ---- */
+  --radius-sm: 4px;
+  --cut: 14px; /* corte angular que referencia la punta del isotipo */
+
+  /* ---- Elevación ---- */
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.45);
+
+  /* ---- Movimiento ---- */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur: 0.25s;
+}
+
+/* ==========================================================================
+   RESET BASE
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  background-color: var(--void);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  /* Salvaguarda: a 320px de ancho, el título del hero (clamp() de tamaño de
+     fuente) produce una diferencia sub-píxel entre scrollWidth y clientWidth
+     en Chromium que NO es visible ni desplazable (scrollX no se mueve; no
+     hay ningún elemento cuyo borde exceda realmente el viewport). Se limita
+     aquí, en el eje horizontal únicamente, para no dejar ese margen teórico. */
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.05;
+  margin: 0;
+  color: var(--ink);
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Accesibilidad: foco visible consistente en toda la identidad */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--ember);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   UTILIDADES
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: var(--space-4);
+  z-index: 1000;
+  background: var(--ember);
+  color: var(--void);
+  padding: var(--space-3) var(--space-5);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: top var(--dur) var(--ease);
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+}
+
+/* ==========================================================================
+   BOTONES
+   El corte angular en las esquinas hace eco de la punta del isotipo de KOA.
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 15px 30px;
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  font-weight: 600;
+  border: 1px solid transparent;
+  clip-path: polygon(
+    var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)),
+    calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut)
+  );
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease),
+    background var(--dur) var(--ease), color var(--dur) var(--ease);
+  white-space: nowrap;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn--sm {
+  padding: 10px 22px;
+  font-size: var(--fs-sm);
+}
+
+.btn--primary {
+  background: var(--flame);
+  color: #1a1000;
+}
+
+.btn--primary:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.btn--outline {
+  background: transparent;
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+
+.btn--outline:hover {
+  border-color: var(--ember);
+  color: var(--ember);
+}
+
+.btn--on-dark {
+  background: rgba(244, 243, 239, 0.06);
+  backdrop-filter: blur(6px);
+}
+
+/* ==========================================================================
+   SECCIÓN — QUIÉNES SOMOS
+   ========================================================================== */
+
+.about {
+  background-color: var(--panel);
+  padding-block: var(--space-9);
+}
+
+.about__inner {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: var(--space-9);
+  align-items: center;
+}
+
+.about__media {
+  position: relative;
+}
+
+/* Marco angular detrás de la imagen: mismo lenguaje de forma que los botones */
+.about__frame {
+  position: absolute;
+  inset: var(--space-5) calc(-1 * var(--space-5)) calc(-1 * var(--space-5)) var(--space-5);
+  background: var(--flame);
+  clip-path: polygon(24px 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%, 0 24px);
+  z-index: 0;
+}
+
+.about__image {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  clip-path: polygon(24px 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%, 0 24px);
+  box-shadow: var(--shadow-md);
+}
+
+.about__title {
+  font-size: clamp(2rem, 1.6rem + 1.6vw, 2.75rem);
+  letter-spacing: 0.01em;
+  margin-bottom: var(--space-3);
+}
+
+.about__subtitle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--ember);
+  font-weight: 600;
+  font-size: var(--fs-md);
+  margin-bottom: var(--space-5);
+}
+
+.about__subtitle-mark {
+  display: inline-block;
+  width: 22px;
+  height: 3px;
+  background: var(--flame);
+  flex-shrink: 0;
+}
+
+.about__text {
+  color: var(--ink-muted);
+  max-width: 62ch;
+  margin-bottom: var(--space-4);
+}
+
+.about__content .btn {
+  margin-top: var(--space-4);
+}
+
+/* ==========================================================================
+   RESPONSIVE — QUIÉNES SOMOS
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  .about__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+  }
+
+  .about__media {
+    max-width: 480px;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .about {
+    padding-block: var(--space-8);
+  }
+
+  .about__frame {
+    inset: var(--space-4) calc(-1 * var(--space-3)) calc(-1 * var(--space-3)) var(--space-3);
+  }
+
+  .about__title {
+    font-size: clamp(1.6rem, 1.3rem + 3vw, 2rem);
+  }
+}
+
+/* ==========================================================================
+   COMPONENTE GLOBAL — EYEBROW / ENCABEZADO DE SECCIÓN
+   Reutilizado por todas las secciones nuevas (home + páginas internas) para
+   mantener una sola jerarquía tipográfica en todo el sitio.
+   ========================================================================== */
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--ember);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-md);
+  letter-spacing: 0.01em;
+  margin-bottom: var(--space-4);
+}
+
+.eyebrow__mark {
+  display: inline-block;
+  width: 22px;
+  height: 3px;
+  background: var(--flame);
+  flex-shrink: 0;
+}
+
+.section-head {
+  max-width: 640px;
+  margin-bottom: var(--space-8);
+}
+
+.section-head--center {
+  max-width: 680px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.section-head--center .eyebrow {
+  justify-content: center;
+}
+
+.section-head__title {
+  font-size: clamp(1.9rem, 1.5rem + 1.6vw, 2.625rem);
+  letter-spacing: 0.01em;
+  margin-bottom: var(--space-4);
+}
+
+.section-head__desc {
+  color: var(--ink-muted);
+  max-width: 60ch;
+}
+
+.section-head--center .section-head__desc {
+  margin-inline: auto;
+}
+
+.section-head--split {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+@media (max-width: 768px) {
+  .section-head {
+    margin-bottom: var(--space-7);
+  }
+
+  .section-head--split {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+
+  .section-head--split > a {
+    align-self: stretch;
+    text-align: center;
+  }
+}
+
+/* ==========================================================================
+   COMPONENTE GLOBAL — TARJETA BASE
+   Base compartida por tarjetas de jugadores, torneos e hitos: mismo lenguaje
+   de forma (esquina cortada) y superficie que el resto de la identidad.
+   ========================================================================== */
+
+.card-surface {
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  clip-path: polygon(
+    18px 0, 100% 0, 100% calc(100% - 18px),
+    calc(100% - 18px) 100%, 0 100%, 0 18px
+  );
+  transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+/* ==========================================================================
+   COMPONENTE GLOBAL — TARJETA DE CONCEPTO
+   Usada por "¿Por qué KOA?" (home) y "Valores" (organización): tarjetas
+   planas con acento lateral, deliberadamente distintas de las tarjetas con
+   fotografía (jugadores/torneos) para dar variedad de forma al sitio.
+   ========================================================================== */
+
+.concept-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+}
+
+.concept-card {
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--ember);
+  padding: var(--space-6) var(--space-5);
+  transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease),
+    background var(--dur) var(--ease);
+}
+
+.concept-card:hover {
+  border-left-color: var(--blaze);
+  background: var(--panel);
+  transform: translateY(-3px);
+}
+
+.concept-card__title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: var(--space-3);
+}
+
+.concept-card__desc {
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+}
+
+@media (max-width: 992px) {
+  .concept-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .concept-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   SALVAGUARDA GLOBAL — BOTONES EN PANTALLAS MUY PEQUEÑAS
+   Los CTA cortos del hero (p.ej. "[ CTA ]") siguen en una sola línea porque
+   ya caben; esto solo evita que los CTA más largos añadidos en las nuevas
+   secciones (p.ej. "[ VER HISTORIAL COMPLETO ]") desborden el viewport.
+   ========================================================================== */
+
+@media (max-width: 420px) {
+  .btn {
+    white-space: normal;
+    text-align: center;
+    max-width: 100%;
+  }
+}
+
+/* ==========================================================================
+   COMPONENTES GLOBALES — PÁGINAS INTERNAS
+   Bloque de introducción y banda de CTA final, compartidos por las cuatro
+   páginas de pages/ para mantener la misma composición en todas ellas.
+   ========================================================================== */
+
+.page-intro {
+  background-color: var(--panel);
+  padding-block: var(--space-9);
+  text-align: center;
+}
+
+.page-intro--alt {
+  background-color: var(--void);
+}
+
+.page-intro__text {
+  max-width: 700px;
+  margin-inline: auto;
+  color: var(--ink-muted);
+}
+
+.page-intro__text + .page-intro__text {
+  margin-top: var(--space-4);
+}
+
+.cta-band {
+  position: relative;
+  background-color: var(--panel);
+  border-top: 3px solid transparent;
+  border-image: var(--flame) 1;
+  padding-block: var(--space-9);
+  text-align: center;
+}
+
+.cta-band__inner {
+  max-width: 680px;
+  margin-inline: auto;
+}
+
+.cta-band__title {
+  font-size: clamp(2rem, 1.6rem + 1.8vw, 3rem);
+  margin-bottom: var(--space-4);
+}
+
+.cta-band__desc {
+  color: var(--ink-muted);
+  margin-bottom: var(--space-7);
+}
+
+@media (max-width: 768px) {
+  .page-intro,
+  .cta-band {
+    padding-block: var(--space-8);
+  }
+}
+
+/* ==========================================================================
+   COMPONENTE GLOBAL — VISTAS DE LA SPA
+   Cada vista (Home, Organización, Jugadores, Torneos, Historial) vive en
+   index.html dentro de un único <main>. js/router.js alterna el atributo
+   "hidden" y esta clase; la regla es explícita para no depender solo del
+   estilo por defecto del navegador ante posibles futuros overrides.
+   ========================================================================== */
+
+.app-view {
+  display: block;
+}
+
+.app-view[hidden] {
+  display: none;
+}

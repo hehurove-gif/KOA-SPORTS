@@ -1,0 +1,303 @@
+/* ==========================================================================
+   KOA — SECCIONES EXCLUSIVAS DEL HOME
+   Cubre las secciones que no tienen una página dedicada propia:
+   KOA en números, Comunidad KOA, ¿Por qué KOA?, Ubicación y CTA final.
+   ========================================================================== */
+
+/* ==========================================================================
+   KOA EN NÚMEROS
+   ========================================================================== */
+
+.stats {
+  background-color: var(--void);
+  border-top: 1px solid var(--line);
+  padding-block: var(--space-8);
+}
+
+.stats__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.stat-card {
+  text-align: center;
+  padding-inline: var(--space-5);
+  border-left: 1px solid var(--line);
+}
+
+.stat-card:first-child {
+  border-left: none;
+}
+
+.stat-card__value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 2rem + 2vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1;
+  margin-bottom: var(--space-3);
+  background: var(--flame);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.stat-card__label {
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  color: var(--ink-muted);
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================================================
+   COMUNIDAD KOA
+   ========================================================================== */
+
+.community {
+  position: relative;
+  background-color: var(--panel);
+  padding-block: var(--space-9);
+}
+
+.community__banner {
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 32px), calc(100% - 32px) 100%, 0 100%);
+}
+
+.community__banner img {
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  object-fit: cover;
+}
+
+.community__banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 10, 13, 0.92) 0%, rgba(10, 10, 13, 0.35) 55%, rgba(10, 10, 13, 0.1) 100%);
+}
+
+.community__content {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-7);
+}
+
+.community__title {
+  font-size: clamp(1.8rem, 1.5rem + 1.4vw, 2.5rem);
+  max-width: 620px;
+  margin-bottom: var(--space-3);
+}
+
+.community__desc {
+  color: var(--ink-muted);
+  max-width: 56ch;
+  margin-bottom: var(--space-6);
+}
+
+.community__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.community__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 10px 18px;
+  background: rgba(19, 19, 24, 0.7);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--line-strong);
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+}
+
+.community__tag svg {
+  width: 16px;
+  height: 16px;
+  color: var(--ember);
+}
+
+/* ==========================================================================
+   ¿POR QUÉ KOA?
+   ========================================================================== */
+
+.why {
+  background-color: var(--void);
+  padding-block: var(--space-9);
+}
+
+/* ==========================================================================
+   UBICACIÓN
+   ========================================================================== */
+
+.location {
+  position: relative;
+  min-height: 560px;
+  display: flex;
+  align-items: flex-end;
+  background-image:
+    linear-gradient(rgba(10, 10, 13, 0.82), rgba(10, 10, 13, 0.82)),
+    linear-gradient(to top, rgba(10, 10, 13, 0.97) 0%, rgba(10, 10, 13, 0.65) 50%, rgba(10, 10, 13, 0.4) 100%),
+    linear-gradient(to right, rgba(10, 10, 13, 0.5) 0%, rgba(10, 10, 13, 0) 60%),
+    url("../assets/images/backgrounds/location.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-block: var(--space-9) 0;
+}
+
+.location__inner {
+  width: 100%;
+  padding-bottom: var(--space-8);
+}
+
+.location__eyebrow {
+  color: var(--ember);
+}
+
+.location__title {
+  font-size: clamp(1.9rem, 1.5rem + 1.6vw, 2.625rem);
+  max-width: 620px;
+  margin-bottom: var(--space-6);
+}
+
+.location__panel {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+  background: rgba(19, 19, 24, 0.72);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--line-strong);
+  padding: var(--space-6) var(--space-7);
+}
+
+.location__field-label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink-muted);
+  margin-bottom: var(--space-2);
+}
+
+.location__field-value {
+  color: var(--ink);
+  font-size: var(--fs-md);
+}
+
+.location__actions {
+  margin-top: var(--space-6);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+/* ==========================================================================
+   CTA FINAL
+   ========================================================================== */
+
+.cta-final {
+  position: relative;
+  background-color: var(--panel);
+  border-top: 3px solid transparent;
+  border-image: var(--flame) 1;
+  padding-block: var(--space-9);
+  text-align: center;
+}
+
+.cta-final__inner {
+  max-width: 680px;
+  margin-inline: auto;
+}
+
+.cta-final__title {
+  font-size: clamp(2rem, 1.6rem + 1.8vw, 3rem);
+  margin-bottom: var(--space-4);
+}
+
+.cta-final__desc {
+  color: var(--ink-muted);
+  margin-bottom: var(--space-7);
+}
+
+/* ==========================================================================
+   RESPONSIVE — SECCIONES DEL HOME
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  .stats__grid {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: var(--space-6);
+  }
+
+  .stat-card:nth-child(3) {
+    border-left: none;
+  }
+
+  .location__panel {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: var(--space-5);
+  }
+}
+
+@media (max-width: 768px) {
+  .stats,
+  .community,
+  .why,
+  .cta-final {
+    padding-block: var(--space-8);
+  }
+
+  .community__banner img {
+    aspect-ratio: 4 / 5;
+  }
+
+  .community__content {
+    padding: var(--space-6) var(--space-5);
+  }
+
+  .location {
+    min-height: auto;
+  }
+
+  .location__panel {
+    padding: var(--space-5);
+  }
+}
+
+@media (max-width: 560px) {
+  .stats__grid {
+    grid-template-columns: 1fr;
+    row-gap: var(--space-6);
+  }
+
+  .stat-card {
+    border-left: none;
+    border-top: 1px solid var(--line);
+    padding-top: var(--space-5);
+  }
+
+  .stat-card:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .location__panel {
+    grid-template-columns: 1fr;
+  }
+
+  .community__tags {
+    gap: var(--space-2);
+  }
+}

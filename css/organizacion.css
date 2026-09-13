@@ -1,0 +1,178 @@
+/* ==========================================================================
+   KOA — ORGANIZACIÓN
+   Estilos exclusivos de pages/organizacion.html: introducción institucional,
+   misión/visión, valores (reutiliza .concept-card global) y estructura.
+   ========================================================================== */
+
+.org-intro {
+  background-color: var(--panel);
+  padding-block: var(--space-9);
+  text-align: center;
+}
+
+.org-intro__text {
+  max-width: 700px;
+  margin-inline: auto;
+  color: var(--ink-muted);
+}
+
+.org-intro__text + .org-intro__text {
+  margin-top: var(--space-4);
+}
+
+/* ---- Banner fotográfico ---- */
+
+.org-photo {
+  position: relative;
+  background-color: var(--void);
+  padding-block: var(--space-9);
+}
+
+.org-photo__frame {
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 32px), calc(100% - 32px) 100%, 0 100%);
+}
+
+.org-photo__frame img {
+  width: 100%;
+  aspect-ratio: 21 / 8;
+  object-fit: cover;
+}
+
+.org-photo__caption {
+  margin-top: var(--space-4);
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+  padding-left: var(--space-4);
+  border-left: 2px solid var(--ember);
+}
+
+/* ---- Misión / Visión ---- */
+
+.pillars {
+  background-color: var(--panel);
+  padding-block: var(--space-9);
+}
+
+.pillars__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+.pillar-card {
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--ember);
+  padding: var(--space-7);
+}
+
+.pillar-card__title {
+  font-size: 1.6rem;
+  margin-bottom: var(--space-4);
+}
+
+.pillar-card__text {
+  color: var(--ink-muted);
+}
+
+/* ---- Valores (usa .concept-grid / .concept-card globales) ---- */
+
+.values {
+  background-color: var(--void);
+  padding-block: var(--space-9);
+}
+
+/* ---- Estructura / áreas de la organización ---- */
+
+.org-units-section {
+  background-color: var(--panel);
+  padding-block: var(--space-9);
+}
+
+.org-units {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+}
+
+.org-unit {
+  text-align: center;
+  padding: var(--space-7) var(--space-4);
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.org-unit:hover {
+  border-color: var(--ember);
+  transform: translateY(-3px);
+}
+
+.org-unit__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-inline: auto;
+  margin-bottom: var(--space-5);
+  border: 1px solid var(--line-strong);
+  color: var(--ember);
+}
+
+.org-unit__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.org-unit__title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: var(--space-3);
+}
+
+.org-unit__desc {
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+}
+
+/* ==========================================================================
+   RESPONSIVE — ORGANIZACIÓN
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  .pillars__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .org-units {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .org-intro,
+  .org-photo,
+  .pillars,
+  .values,
+  .org-units-section {
+    padding-block: var(--space-8);
+  }
+
+  .org-photo__frame img {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+@media (max-width: 480px) {
+  .org-units {
+    grid-template-columns: 1fr;
+  }
+
+  .pillar-card {
+    padding: var(--space-6) var(--space-5);
+  }
+}
