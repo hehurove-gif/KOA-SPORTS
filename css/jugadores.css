@@ -1,0 +1,517 @@
+/* ==========================================================================
+   KOA — JUGADORES / ROSTER
+   Componente de tarjeta de jugador (generado por js/players.js desde
+   data/players.json y reutilizado en el Home y en la grilla completa de la
+   vista Jugadores) + estilos propios de la vista.
+   ========================================================================== */
+
+.roster {
+  background-color: var(--panel);
+  padding-block: var(--space-9);
+}
+
+/* Rejilla del roster: la usan el Home (destacados) y la vista Jugadores
+   (completo). Columnas por fila = --roster-cols; si la última fila queda
+   incompleta —o hay una sola tarjeta, como el slot "Próximamente"— sus
+   tarjetas se centran en vez de quedarse pegadas a la izquierda. */
+.roster-grid {
+  --roster-cols: 4;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-5);
+}
+
+.roster-grid > .player-card {
+  flex: 0 0 calc((100% - (var(--roster-cols) - 1) * var(--space-5)) / var(--roster-cols));
+  min-width: 0;
+}
+
+.roster__foot {
+  margin-top: var(--space-8);
+  text-align: center;
+}
+
+/* ---- Tarjeta de jugador (compartida) ---- */
+
+.player-card {
+  position: relative;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.player-card:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-4px);
+}
+
+.player-card__media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--panel);
+}
+
+.player-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.player-card__tag {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  padding: 5px 12px;
+  background: var(--flame);
+  color: #1a1000;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  letter-spacing: 0.04em;
+  clip-path: polygon(6px 0, 100% 0, 100% 100%, 0 100%, 0 6px);
+}
+
+.player-card__body {
+  padding: var(--space-5);
+}
+
+.player-card__name {
+  font-size: 1.3rem;
+  margin-bottom: var(--space-3);
+}
+
+.player-card__mains {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.player-card__main-chip {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: var(--fs-sm);
+  color: var(--ink-muted);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.player-card__main-chip strong {
+  margin-left: 4px;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.player-card__extra {
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+  margin-bottom: var(--space-4);
+}
+
+.player-card__social {
+  display: flex;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--line);
+}
+
+.player-card__social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  color: var(--ink-muted);
+  border: 1px solid var(--line);
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+.player-card__social a:hover {
+  color: var(--ember);
+  border-color: var(--ember);
+}
+
+.player-card__social svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ---- Tarjeta solo-foto ----
+   Jugador del que el JSON todavía no trae ningún dato aparte de la imagen: se
+   muestra únicamente la foto, sin ficha, así que no aparenta ser interactiva. */
+
+.player-card--static {
+  cursor: default;
+}
+
+.player-card--static:hover {
+  border-color: var(--line);
+  transform: none;
+}
+
+.player-card--static:hover .player-card__media img {
+  transform: none;
+}
+
+.player-card--static:hover .player-card__media::after {
+  opacity: 0;
+}
+
+/* ---- Tarjeta interactiva: "Ver ficha" ----
+   js/players.js añade un botón .player-card__more a cada tarjeta. Su ::after
+   se estira sobre toda la tarjeta (tarjeta entera clicable) y los enlaces
+   sociales quedan por encima (z-index) para seguir funcionando. */
+
+.player-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: var(--flame);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease);
+  z-index: 2;
+}
+
+.player-card:hover::before,
+.player-card:focus-within::before {
+  transform: scaleX(1);
+}
+
+.player-card__media img {
+  transition: transform 0.6s var(--ease);
+}
+
+.player-card:hover .player-card__media img {
+  transform: scale(1.05);
+}
+
+.player-card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 10, 13, 0.55), transparent 50%);
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease);
+  pointer-events: none;
+}
+
+.player-card:hover .player-card__media::after {
+  opacity: 1;
+}
+
+.player-card__tag {
+  z-index: 1;
+}
+
+.player-card__more {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--ember);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.player-card__mains + .player-card__more {
+  margin-top: 0;
+}
+
+.player-card__more svg {
+  width: 18px;
+  height: 18px;
+  transition: transform var(--dur) var(--ease);
+}
+
+.player-card:hover .player-card__more svg {
+  transform: translateX(4px);
+}
+
+.player-card__more::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.player-card__more:focus-visible {
+  outline: 2px solid var(--ember);
+  outline-offset: 4px;
+}
+
+.player-card:has(.player-card__more:focus-visible) {
+  border-color: var(--ember);
+}
+
+.player-card__social a {
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   VISTA — Jugadores (roster completo)
+   ========================================================================== */
+
+.roster-page {
+  background-color: var(--panel);
+  padding-block: var(--space-9);
+}
+
+/* Tras la introducción (mismo fondo) el roster sube y no acumula el padding
+   de dos secciones seguidas. */
+.page-intro + .roster-page {
+  padding-top: var(--space-7);
+}
+
+/* Aviso si data/players.json no se pudo leer (misma voz que los avisos de torneos). */
+.roster-status {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-5);
+  text-align: center;
+  color: var(--ink-muted);
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+}
+
+/* ==========================================================================
+   RESPONSIVE — ROSTER
+   ========================================================================== */
+
+@media (max-width: 1100px) {
+  .roster-grid {
+    --roster-cols: 3;
+  }
+}
+
+@media (max-width: 860px) {
+  .roster-grid {
+    --roster-cols: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .roster,
+  .roster-page {
+    padding-block: var(--space-8);
+  }
+}
+
+@media (max-width: 520px) {
+  .roster-grid {
+    --roster-cols: 1;
+  }
+
+  .player-card__media {
+    aspect-ratio: 16 / 11;
+  }
+}
+
+/* ==========================================================================
+   ENFOQUE DE CRECIMIENTO — vista Jugadores
+   Imagen + texto sobre cómo crecen los jugadores dentro de KOA.
+   ========================================================================== */
+
+.player-development {
+  background-color: var(--void);
+  padding-block: var(--space-9);
+}
+
+.player-development__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.player-development__media img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  clip-path: polygon(24px 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%, 0 24px);
+  box-shadow: var(--shadow-md);
+}
+
+.player-development__title {
+  font-size: clamp(1.8rem, 1.5rem + 1.2vw, 2.3rem);
+  margin-bottom: var(--space-4);
+}
+
+.player-development__text {
+  color: var(--ink-muted);
+}
+
+.player-development__text + .player-development__text {
+  margin-top: var(--space-4);
+}
+
+@media (max-width: 992px) {
+  .player-development__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .player-development__media {
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 768px) {
+  .player-development {
+    padding-block: var(--space-8);
+  }
+}
+
+/* ==========================================================================
+   FICHA DE JUGADOR — <dialog> modal
+   Se abre desde js/players.js. El propio <dialog> aporta el foco atrapado,
+   el cierre con Esc y la restauración del foco al cerrar.
+   ========================================================================== */
+
+.player-dialog {
+  width: min(860px, calc(100vw - 32px));
+  max-width: none;
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  overflow: visible;
+}
+
+.player-dialog[open] {
+  display: block;
+  animation: dialog-in 0.28s var(--ease) both;
+}
+
+.player-dialog::backdrop {
+  background: rgba(5, 5, 8, 0.8);
+  backdrop-filter: blur(6px);
+}
+
+.player-dialog [hidden] {
+  display: none !important;
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+body:has(.player-dialog[open]) {
+  overflow: hidden;
+}
+
+.player-dialog__panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  max-height: calc(100dvh - 32px);
+  overflow: auto;
+  background: var(--panel-2);
+  border: 1px solid var(--line-strong);
+  clip-path: polygon(24px 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%, 0 24px);
+}
+
+.player-dialog__media {
+  position: relative;
+  background: var(--panel);
+  min-height: 100%;
+}
+
+.player-dialog__media img {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+}
+
+.player-dialog__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--space-8) var(--space-6) var(--space-6);
+}
+
+.player-dialog__name {
+  font-size: clamp(1.8rem, 1.5rem + 1.2vw, 2.4rem);
+  margin-bottom: var(--space-4);
+}
+
+.player-dialog__desc {
+  color: var(--ink-muted);
+  margin-bottom: var(--space-5);
+}
+
+.player-dialog__body .player-card__social {
+  width: 100%;
+  margin-bottom: var(--space-5);
+}
+
+.player-dialog__more {
+  margin-top: auto;
+}
+
+.player-dialog__close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: rgba(10, 10, 13, 0.75);
+  border: 1px solid var(--line-strong);
+  color: var(--ink);
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+.player-dialog__close:hover {
+  color: var(--ember);
+  border-color: var(--ember);
+}
+
+.player-dialog__close svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 640px) {
+  .player-dialog__panel {
+    grid-template-columns: 1fr;
+  }
+
+  .player-dialog__media img {
+    min-height: 0;
+    aspect-ratio: 16 / 11;
+  }
+
+  .player-dialog__body {
+    padding: var(--space-6) var(--space-5) var(--space-5);
+  }
+}

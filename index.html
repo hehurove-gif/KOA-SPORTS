@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KOA Sports | Juega. Compite. Pertenece</title>
+  <meta name="description" content="KOA es una plataforma enfocada en el desarrollo de comunidades a través de experiencias deportivas, eSports y Wellness. Juega. Compite. Pertenece.">
+  <meta name="theme-color" content="#0a0a0d">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="KOA Sports">
+  <meta property="og:title" content="KOA Sports | Juega. Compite. Pertenece">
+  <meta property="og:description" content="KOA es una plataforma enfocada en el desarrollo de comunidades a través de experiencias deportivas, eSports y Wellness. Juega. Compite. Pertenece.">
+  <meta property="og:image" content="assets/images/logo/koa-logo.png">
+  <meta property="og:image:alt" content="Logotipo de KOA">
+  <link rel="icon" type="image/png" href="assets/images/logo/koa-logo.png">
+
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/torneos.css">
+  <link rel="stylesheet" href="css/jugadores.css">
+  <link rel="stylesheet" href="css/historial.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/organizacion.css">
+  <link rel="stylesheet" href="css/contacto.css">
+</head>
+<body>
+
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+
+      <a href="#home" class="navbar__brand" aria-label="KOA — Ir al inicio">
+        <img
+          src="assets/images/logo/koa-logo.png"
+          alt="Logotipo de KOA"
+          class="navbar__logo"
+          width="52" height="52">
+      </a>
+
+      <nav class="navbar__nav" id="primary-navigation" aria-label="Navegación principal">
+        <ul class="navbar__links">
+          <li><a href="#home" class="navbar__link is-active">Inicio</a></li>
+          <li><a href="#organizacion" class="navbar__link">Organización</a></li>
+          <li><a href="#jugadores" class="navbar__link">Jugadores</a></li>
+          <li><a href="#torneos" class="navbar__link">Torneos</a></li>
+          <li><a href="#historial" class="navbar__link">Historial</a></li>
+        </ul>
+        <a href="#contacto" class="btn btn--primary btn--sm navbar__cta">Contacto</a>
+      </nav>
+
+      <button
+        type="button"
+        class="navbar__toggle"
+        id="navToggle"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+        aria-label="Abrir menú de navegación">
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+      </button>
+
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section id="view-home" class="app-view is-active" aria-hidden="false">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="inicio">
+      <div class="container hero__inner">
+        <div class="hero__content">
+
+          <p class="hero__tag">
+            <span class="hero__tag-mark" aria-hidden="true"></span>
+            #WeAreKOA
+          </p>
+
+          <h1 class="hero__title">
+            Juega. Compite. <span class="text-flame">Pertenece</span>
+          </h1>
+
+          <p class="hero__desc">
+            KOA eSports son momentos de conexión. Te conecta con el juego, la competencia,
+            la estrategia y, sobre todo, con una comunidad.
+          </p>
+
+          <div class="hero__actions">
+            <a href="#quienes-somos" class="btn btn--primary">Conoce a KOA</a>
+            <a href="#roster-destacado" class="btn btn--outline btn--on-dark">Ver el roster</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ¿A QUÉ SE DEDICA KOA? ============ -->
+    <section class="about" id="quienes-somos" aria-labelledby="about-title">
+      <div class="container about__inner">
+
+        <div class="about__media">
+          <div class="about__frame" aria-hidden="true"></div>
+          <img
+            src="assets/images/organization/koa-team.png"
+            alt="Jugadores celebrando durante una competencia de videojuegos"
+            class="about__image"
+            width="500" height="333" loading="lazy">
+        </div>
+
+        <div class="about__content">
+
+          <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>Nosotros</p>
+
+          <h2 class="about__title" id="about-title">¿A qué se dedica <span class="text-flame">KOA</span>?</h2>
+
+          <p class="about__lead">
+            Nace del deseo de pertenencia absoluta y de la tarde de videojuegos con amigos
+            donde nadie se queda fuera.
+          </p>
+
+          <p class="about__text">
+            KOA es una plataforma enfocada en el desarrollo de comunidades a través de
+            experiencias deportivas, eSports y Wellness, diseñadas para impulsar el
+            crecimiento personal, fortalecer la conexión social y generar impacto cultural
+            en nuevas generaciones.
+          </p>
+
+          <ul class="about__pillars">
+            <li class="about__pillar">
+              <span class="about__pillar-name">Competitivo</span>
+              <span class="about__pillar-desc">Competimos para mejorar, no solo para ganar.</span>
+            </li>
+            <li class="about__pillar">
+              <span class="about__pillar-name">Comunidad</span>
+              <span class="about__pillar-desc">La comunidad es nuestro motor.</span>
+            </li>
+            <li class="about__pillar">
+              <span class="about__pillar-name">Crecimiento</span>
+              <span class="about__pillar-desc">En KOA creces como jugador y como persona.</span>
+            </li>
+          </ul>
+
+          <div class="about__actions">
+            <a href="#organizacion" class="btn btn--primary">Conoce la organización</a>
+            <a href="#historial" class="btn btn--outline">Ver historial</a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ TORNEOS KOA ============
+         Carrusel dinámico: js/tournaments.js llena .tournaments__track con tarjetas
+         (no hay torneos escritos aquí). Estados del contenedor: cargando y error
+         (data-tournaments-state, ocultos por defecto) y "sin torneos"
+         (data-tournaments-empty). El Home solo muestra torneos en vivo y próximos
+         (cualquiera que sea el estado de su inscripción); los terminados no entran
+         en este carrusel. -->
+    <section class="tournaments" id="torneos-preview" aria-labelledby="tournaments-title">
+      <div class="container">
+
+        <div class="section-head section-head--split">
+          <div>
+            <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>Torneos</p>
+            <h2 class="section-head__title" id="tournaments-title">Torneos KOA</h2>
+            <p class="section-head__desc">
+              Sigue los torneos en vivo, con inscripciones abiertas y próximos de KOA.
+            </p>
+          </div>
+          <a href="#torneos" class="btn btn--outline">Ver todos los torneos</a>
+        </div>
+
+        <div class="tournaments__viewport">
+          <div class="tournaments__track" data-tournaments="carousel"></div>
+        </div>
+
+        <p class="tournaments-status" data-tournaments-state="loading" role="status" hidden><span class="tournaments-status__spinner" aria-hidden="true"></span>Cargando torneos…</p>
+        <p class="tournaments-status tournaments-status--error" data-tournaments-state="error" role="alert" hidden>No pudimos cargar los torneos. Inténtalo de nuevo más tarde.</p>
+        <p class="tournaments-empty" data-tournaments-empty="carousel">Sin torneos para mostrar por ahora.</p>
+
+        <div class="tournaments__controls" hidden>
+          <div class="tournaments__dots" data-carousel="dots"></div>
+          <div class="tournaments__arrows">
+            <button type="button" class="tournaments__arrow" data-carousel="prev" aria-label="Ver torneos anteriores">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg>
+            </button>
+            <button type="button" class="tournaments__arrow" data-carousel="next" aria-label="Ver torneos siguientes">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ ROSTER (destacados) ============
+         js/players.js llena .roster-grid con los jugadores de data/players.json que
+         tienen "featured": true. No hay tarjetas escritas a mano. La sección permanece
+         oculta hasta que hay jugadores que mostrar.
+         Su ancla es #roster-destacado (la usa el botón "Ver el roster" del hero). El ancla
+         #roster es la del roster COMPLETO, en la vista Jugadores. -->
+    <section class="roster" id="roster-destacado" aria-labelledby="roster-title" hidden>
+      <div class="container">
+
+        <div class="section-head section-head--center">
+          <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>Jugadores</p>
+          <h2 class="section-head__title" id="roster-title">Roster <span class="text-flame">KOA</span></h2>
+        </div>
+
+        <div class="roster-grid" data-roster="featured"></div>
+
+        <div class="roster__foot">
+          <a href="#roster" class="btn btn--primary">Ver roster completo</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ COMUNIDAD KOA ============ -->
+    <section class="community" id="comunidad">
+      <div class="container">
+        <div class="community__banner">
+          <img src="assets/images/organization/koa-event.png" alt="Jugadores reunidos alrededor de una mesa durante un evento" width="500" height="281" loading="lazy">
+          <div class="community__content">
+            <h2 class="community__title">La comunidad es nuestro motor.</h2>
+            <p class="community__desc">
+              Retas, torneos y convivencia donde nadie se queda fuera. La pantalla no aísla,
+              une, y cada persona encuentra su manada.
+            </p>
+            <div class="community__tags">
+              <span class="community__tag">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h7l-1 8 11-14h-8l1-6z"></path></svg>
+                Retas
+              </span>
+              <span class="community__tag">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4z"></path><path d="M7 5H4a3 3 0 0 0 3 3M17 5h3a3 3 0 0 1-3 3"></path></svg>
+                Torneos
+              </span>
+              <span class="community__tag">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"></path><circle cx="10" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                Convivencia
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ¿POR QUÉ KOA ES BUENA ORGANIZACIÓN? ============ -->
+    <section class="why" id="por-que-koa" aria-labelledby="why-title">
+      <div class="container">
+
+        <div class="section-head section-head--center">
+          <h2 class="section-head__title" id="why-title">¿Por qué KOA es <span class="text-flame">buena organización</span>?</h2>
+        </div>
+
+        <div class="concept-grid">
+          <div class="concept-card">
+            <h3 class="concept-card__title">Gamers</h3>
+            <p class="concept-card__desc">
+              En KOA compites en serio: nuestros torneos están rankeados en SuperMajor y suman
+              puntos para el Top de México.
+            </p>
+            <p class="concept-card__desc">
+              Aquí encuentras competencia real, mejora continua y una manada que te respalda.
+            </p>
+            <p class="concept-card__desc">
+              Y lo hacemos accesible: tu entrada incluye alimentos y tiene un precio pensado
+              para que todos puedan jugar.
+            </p>
+            <p class="concept-card__desc">Llegas a jugar y te quedas por la gente.</p>
+          </div>
+          <div class="concept-card">
+            <h3 class="concept-card__title">Familias</h3>
+            <p class="concept-card__desc">
+              Para muchas familias, KOA es el lugar donde sus hijos encontraron pertenencia.
+            </p>
+            <p class="concept-card__desc">
+              Los padres nos cuentan que sus hijos llegan a un espacio seguro donde aprenden
+              a manejar la frustración, hacen amigos de verdad, recuperan las ganas y vuelven
+              a sonreír.
+            </p>
+          </div>
+          <div class="concept-card">
+            <h3 class="concept-card__title">Comunidad</h3>
+            <p class="concept-card__desc">Rompemos el estereotipo del gamer aislado.</p>
+            <p class="concept-card__desc">
+              Creamos un espacio donde nadie se queda fuera, con retas, torneos y convivencia,
+              como esa tarde de videojuegos con amigos que invita a todo el salón.
+            </p>
+          </div>
+          <div class="concept-card">
+            <h3 class="concept-card__title">Sponsors y marcas</h3>
+            <p class="concept-card__desc">
+              Ofrecemos acceso a Gen Z y Alpha (14 a 25 años) en un entorno de alta lealtad,
+              con interacción real y no solo visibilidad.
+            </p>
+            <p class="concept-card__desc">
+              La comunidad es auténtica y emocionalmente comprometida, y asociarte con KOA
+              significa vincular tu marca a un propósito claro: conexión y crecimiento personal.
+            </p>
+          </div>
+          <div class="concept-card">
+            <h3 class="concept-card__title">Aliados</h3>
+            <p class="concept-card__desc">
+              KOA suma. Somos un ecosistema (Sports, eSports y Wellness) que abre puertas a
+              colaboraciones con impacto cultural y social donde cada aliado crece junto a una
+              comunidad que se multiplica.
+            </p>
+            <p class="concept-card__desc">Cuando la gente se une, todos ganan.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ HISTORIAL (vista previa) ============ -->
+    <section class="history" id="historial-preview">
+      <div class="container">
+
+        <div class="section-head section-head--center">
+          <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>Nuestra historia</p>
+          <h2 class="section-head__title">Aquí, la pantalla no los aísla, los une.</h2>
+          <p class="section-head__desc">
+            KOA nace para convertir el juego en un punto de encuentro. Encontramos en el control
+            y en la estrategia el puente para conectar, crear lazos inquebrantables, compartir
+            una pizza, reír en comunidad e invitar orgánicamente a todo el salón a casa.
+          </p>
+        </div>
+
+        <div class="history__foot">
+          <a href="#historial" class="btn btn--outline">Ver historial completo</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ CTA FINAL ============ -->
+    <section class="cta-final" id="unete">
+      <div class="container cta-final__inner">
+        <h2 class="cta-final__title">Juega. Compite. Pertenece</h2>
+        <p class="cta-final__desc">Aquí tu pasión deja de ser pasatiempo y se vuelve una herramienta de evolución.</p>
+        <a href="#contacto" class="btn btn--primary">Únete a la comunidad</a>
+      </div>
+    </section>
+
+    </section>
+
+    <section id="view-organizacion" class="app-view" hidden aria-hidden="true">
+
+    <!-- ============ HERO DE PÁGINA ============ -->
+    <section class="page-hero">
+      <div class="container page-hero__inner">
+        <p class="page-hero__crumb">
+          <a href="#home">Inicio</a>
+          <span aria-hidden="true">/</span>
+          <span>Organización</span>
+        </p>
+        <h1 class="page-hero__title">Organización KOA</h1>
+        <p class="page-hero__desc">
+          Nuestra filosofía se resume en nuestro superpoder: La Unión y la Mejora Continua.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ QUIÉNES SOMOS ============ -->
+    <section class="org-intro">
+      <div class="container">
+        <p class="eyebrow">
+          <span class="eyebrow__mark" aria-hidden="true"></span>¿A qué se dedica KOA?
+        </p>
+        <h2 class="section-head__title">Quiénes somos</h2>
+        <p class="org-intro__text">
+          KOA es una plataforma enfocada en el desarrollo de comunidades a través de
+          experiencias deportivas, eSports y Wellness, diseñadas para impulsar el crecimiento
+          personal, fortalecer la conexión social y generar impacto cultural en nuevas
+          generaciones.
+        </p>
+        <p class="org-intro__text">
+          Rompemos el estereotipo del gamer aislado para posicionarnos como un espacio
+          hiperconectado, creativo, visionario y sumamente cool.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ BANNER FOTOGRÁFICO ============ -->
+    <section class="org-photo">
+      <div class="container">
+        <div class="org-photo__frame">
+          <img src="assets/images/organization/koa-team.png" alt="Jugadores celebrando durante una competencia de videojuegos" width="500" height="333" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ACTUALMENTE / A FUTURO ============ -->
+    <section class="pillars">
+      <div class="container pillars__grid">
+        <div class="pillar-card">
+          <h2 class="pillar-card__title">Actualmente</h2>
+          <p class="pillar-card__text">
+            KOA busca unir a través del juego.
+          </p>
+        </div>
+        <div class="pillar-card">
+          <h2 class="pillar-card__title">A futuro</h2>
+          <p class="pillar-card__text">
+            KOA busca ser la comunidad de gamers más grande del mundo, conectando a millones
+            de personas a través del juego y redefiniendo lo que significa jugar: no solo
+            competir, sino pertenecer.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ENFOQUE ============ -->
+    <section class="values">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <h2 class="section-head__title">Nuestro enfoque</h2>
+        </div>
+
+        <div class="concept-grid">
+          <div class="concept-card">
+            <h3 class="concept-card__title">Enfoque competitivo</h3>
+            <p class="concept-card__desc">
+              Competimos para mejorar, no solo para ganar. Nuestros torneos están rankeados en
+              SuperMajor y suman al Top de México, y pronto abriremos nuestro equipo
+              representativo de players: un espacio de alto rendimiento donde los jugadores
+              entrenan, analizan su juego y compiten con presencia en la arena mundial.
+              Estrategia, disciplina y hambre de victoria, siempre con buena vibra.
+            </p>
+          </div>
+          <div class="concept-card">
+            <h3 class="concept-card__title">Enfoque de comunidad</h3>
+            <p class="concept-card__desc">
+              La comunidad es nuestro motor. Retas, torneos y convivencia donde nadie se queda
+              fuera. Llegas a jugar y te quedas por la gente. La pantalla no aísla, une, y cada
+              persona encuentra su manada.
+            </p>
+          </div>
+          <div class="concept-card">
+            <h3 class="concept-card__title">Enfoque de crecimiento</h3>
+            <p class="concept-card__desc">
+              En KOA creces como jugador y como persona. A todos los que inician carrera en el
+              HEAD QUARTER les construimos un plan de carrera para potencializar su sueño, su
+              propósito y su talento.
+            </p>
+            <p class="concept-card__desc">
+              Aquí tu pasión deja de ser pasatiempo y se vuelve una herramienta de evolución.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ¿POR QUÉ SMASH? ============ -->
+    <section class="smash" aria-labelledby="smash-title">
+      <div class="container smash__inner">
+
+        <div>
+          <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>KOA eSports</p>
+          <h2 class="section-head__title" id="smash-title">¿Por qué Smash?</h2>
+          <p class="about__lead">
+            Smash es, en esencia, lo mismo que KOA: un videojuego donde nadie se queda fuera.
+          </p>
+        </div>
+
+        <div class="smash__body">
+          <p>
+            Nintendo construye sus juegos sobre una idea simple: la diversión se comparte, y
+            juega quien quiera jugar. Smash lo lleva al extremo. Reúne en un mismo escenario a
+            personajes de universos distintos, con el lema "Everyone is here". Es fácil de
+            aprender y difícil de dominar, así que un novato y un competitivo pueden compartir
+            pantalla y los dos la pasan bien.
+          </p>
+          <p>
+            Eso es exactamente "la tarde de videojuegos con amigos donde nadie se queda fuera".
+          </p>
+          <p>
+            Además, Smash vive en el sillón y en la reta presencial. Es un juego que obliga a
+            mirarse a la cara, reír, perder y pedir la revancha. En KOA eSports la pantalla no
+            aísla, une, y Smash es el mejor puente para eso: cualquiera puede llegar, tomar un
+            control y encontrar a su manada.
+          </p>
+          <p>
+            Y tiene el equilibrio que buscamos: competencia seria y buena vibra al mismo tiempo.
+            Se entrena, se mejora y se compite (nuestra Mejora Continua), sin perder la alegría
+            ni la comunidad (nuestra Unión). Por eso Smash fue el lugar natural para empezar:
+            aquí no compites contra el de al lado, desafías a la versión de ti que ya no te
+            sirve, y lo haces acompañado.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ CTA FINAL ============ -->
+    <section class="cta-band">
+      <div class="container cta-band__inner">
+        <h2 class="cta-band__title">KOA suma</h2>
+        <p class="cta-band__desc">
+          Somos un ecosistema (Sports, eSports y Wellness) que abre puertas a colaboraciones
+          con impacto cultural y social donde cada aliado crece junto a una comunidad que se
+          multiplica.
+        </p>
+        <a href="#torneos" class="btn btn--primary">Ver torneos</a>
+      </div>
+    </section>
+
+    </section>
+
+    <section id="view-jugadores" class="app-view" hidden aria-hidden="true">
+
+    <!-- ============ HERO DE PÁGINA ============ -->
+    <section class="page-hero">
+      <div class="container page-hero__inner">
+        <p class="page-hero__crumb">
+          <a href="#home">Inicio</a>
+          <span aria-hidden="true">/</span>
+          <span>Jugadores</span>
+        </p>
+        <h1 class="page-hero__title">Roster KOA</h1>
+        <p class="page-hero__desc">
+          Competimos para mejorar, no solo para ganar.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ ENFOQUE COMPETITIVO ============ -->
+    <section class="page-intro">
+      <div class="container">
+        <p class="page-intro__text">
+          Nuestros torneos están rankeados en SuperMajor y suman al Top de México, y pronto
+          abriremos nuestro equipo representativo de players: un espacio de alto rendimiento
+          donde los jugadores entrenan, analizan su juego y compiten con presencia en la arena
+          mundial.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ ROSTER COMPLETO ============
+         #roster es el ancla de esta sección: "Ver roster completo" (Home y ficha del
+         jugador) lleva a #roster y js/router.js abre la vista Jugadores ya posicionada aquí.
+         No hay tarjetas escritas a mano: js/players.js llena .roster-grid con TODOS los
+         jugadores de data/players.json (la propiedad "featured" solo decide quién sale
+         destacado en el Home). La sección es visible desde el inicio para que el ancla
+         siempre tenga a dónde llegar (la grilla se llena al cargar el JSON); si el JSON
+         está vacío, js/players.js la oculta, y si no se puede leer, muestra el aviso de
+         error. Cada tarjeta con información recibe un botón "Ver ficha" que abre el
+         <dialog id="playerDialog">. La cabecera (etiqueta, título y descripción) es fija. -->
+    <section class="roster-page" id="roster" aria-labelledby="roster-page-title">
+      <div class="container">
+
+        <div class="section-head section-head--center">
+          <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>Jugadores</p>
+          <h2 class="section-head__title" id="roster-page-title">Roster completo</h2>
+          <p class="section-head__desc">
+            Estrategia, disciplina y hambre de victoria, siempre con buena vibra.
+          </p>
+        </div>
+
+        <div class="roster-grid" data-roster="all"></div>
+
+        <p class="roster-status" data-roster-state="error" role="alert" hidden>No pudimos cargar el roster. Inténtalo de nuevo más tarde.</p>
+
+      </div>
+    </section>
+
+    <!-- ============ ENFOQUE DE CRECIMIENTO ============ -->
+    <section class="player-development">
+      <div class="container player-development__inner">
+
+        <div class="player-development__media">
+          <img src="assets/images/organization/koa-event.png" alt="Jugadores reunidos alrededor de una mesa durante un evento" width="500" height="281" loading="lazy">
+        </div>
+
+        <div>
+          <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>Enfoque de crecimiento</p>
+          <h2 class="player-development__title">En KOA creces como jugador y como persona.</h2>
+          <p class="player-development__text">
+            A todos los que inician carrera en el HEAD QUARTER les construimos un plan de
+            carrera para potencializar su sueño, su propósito y su talento.
+          </p>
+          <p class="player-development__text">
+            Aquí tu pasión deja de ser pasatiempo y se vuelve una herramienta de evolución.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ CTA FINAL ============ -->
+    <section class="cta-band">
+      <div class="container cta-band__inner">
+        <h2 class="cta-band__title">#WeAreKOA</h2>
+        <p class="cta-band__desc">KOA busca unir a través del juego.</p>
+        <a href="#organizacion" class="btn btn--primary">Conoce la organización</a>
+      </div>
+    </section>
+
+    </section>
+
+    <section id="view-torneos" class="app-view" hidden aria-hidden="true">
+
+    <!-- ============ HERO DE PÁGINA ============ -->
+    <section class="page-hero">
+      <div class="container page-hero__inner">
+        <p class="page-hero__crumb">
+          <a href="#home">Inicio</a>
+          <span aria-hidden="true">/</span>
+          <span>Torneos</span>
+        </p>
+        <h1 class="page-hero__title">Torneos KOA</h1>
+        <p class="page-hero__desc">
+          En KOA compites en serio: nuestros torneos están rankeados en SuperMajor y suman
+          puntos para el Top de México.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ INTRODUCCIÓN ============ -->
+    <section class="page-intro">
+      <div class="container">
+        <p class="page-intro__text">
+          Aquí encuentras competencia real, mejora continua y una manada que te respalda. Y lo
+          hacemos accesible: tu entrada incluye alimentos y tiene un precio pensado para que
+          todos puedan jugar.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ LISTADO DE TORNEOS ============
+         Tres grupos (en vivo, próximos torneos, finalizados recientes) con la misma
+         estructura: un contenedor [data-tournaments="<clave>"] que llena js/tournaments.js
+         con tarjetas y su mensaje [data-tournaments-empty="<clave>"] de "sin torneos".
+         «Próximos torneos» reúne TODOS los torneos que aún no empiezan; cada tarjeta
+         indica en su etiqueta el estado real de su inscripción (abierta, cierra pronto,
+         próximamente o cerrada). No hay tarjetas escritas a mano. Estados globales de la
+         lista: cargando y error (data-tournaments-state, ocultos por defecto).
+         Tarjeta generada (js/tournaments.js):
+           article.tournament-card > div.tournament-card__media (img + span de estado)
+                                   + div.tournament-card__body (h3 con el nombre + enlace a Start.gg) -->
+    <section class="tournaments-page__top" aria-label="Listado de torneos">
+      <div class="container">
+
+        <nav class="tournaments-page__nav" aria-label="Secciones de torneos">
+          <a href="#en-vivo">En vivo</a>
+          <a href="#proximos">Próximos torneos</a>
+          <a href="#finalizados">Finalizados recientes</a>
+        </nav>
+
+        <p class="tournaments-status" data-tournaments-state="loading" role="status" hidden><span class="tournaments-status__spinner" aria-hidden="true"></span>Cargando torneos…</p>
+        <p class="tournaments-status tournaments-status--error" data-tournaments-state="error" role="alert" hidden>No pudimos cargar los torneos. Inténtalo de nuevo más tarde.</p>
+
+      </div>
+    </section>
+
+    <section class="tournaments-section" id="en-vivo">
+      <div class="container">
+
+        <div class="section-head">
+          <h2 class="section-head__title">En vivo</h2>
+        </div>
+
+        <div class="tournaments-grid" data-tournaments="live"></div>
+        <p class="tournaments-empty" data-tournaments-empty="live">Sin torneos en vivo por ahora.</p>
+
+      </div>
+    </section>
+
+    <section class="tournaments-section" id="proximos">
+      <div class="container">
+
+        <div class="section-head">
+          <h2 class="section-head__title">Próximos torneos</h2>
+        </div>
+
+        <div class="tournaments-grid" data-tournaments="upcoming"></div>
+        <p class="tournaments-empty" data-tournaments-empty="upcoming">Sin próximos torneos por ahora.</p>
+
+      </div>
+    </section>
+
+    <section class="tournaments-section" id="finalizados">
+      <div class="container">
+
+        <div class="section-head">
+          <h2 class="section-head__title">Finalizados recientes</h2>
+        </div>
+
+        <div class="tournaments-grid" data-tournaments="finished"></div>
+        <p class="tournaments-empty" data-tournaments-empty="finished">Sin torneos finalizados por mostrar.</p>
+
+      </div>
+    </section>
+
+    <!-- ============ CTA FINAL ============ -->
+    <section class="cta-band">
+      <div class="container cta-band__inner">
+        <h2 class="cta-band__title">La pantalla no aísla, une</h2>
+        <p class="cta-band__desc">
+          Retas, torneos y convivencia donde nadie se queda fuera.
+        </p>
+        <a href="#roster" class="btn btn--primary">Ver el roster</a>
+      </div>
+    </section>
+
+    </section>
+
+    <section id="view-historial" class="app-view" hidden aria-hidden="true">
+
+    <!-- ============ HERO DE PÁGINA ============ -->
+    <section class="page-hero">
+      <div class="container page-hero__inner">
+        <p class="page-hero__crumb">
+          <a href="#home">Inicio</a>
+          <span aria-hidden="true">/</span>
+          <span>Historial</span>
+        </p>
+        <h1 class="page-hero__title">Historial KOA</h1>
+        <p class="page-hero__desc">
+          Nace del deseo de pertenencia absoluta y de la tarde de videojuegos con amigos donde
+          nadie se queda fuera.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ INTRODUCCIÓN ============
+         Narrativa en dos pasos: el problema (cada vez hay menos espacios para convivir de
+         verdad) y la respuesta (el gaming como punto de encuentro). La filosofía de KOA
+         cierra en "Nuestra historia". Sin cifras ni afirmaciones clínicas. -->
+    <section class="page-intro">
+      <div class="container">
+        <p class="page-intro__text">
+          Cada vez hay menos espacios para convivir de verdad. Vivimos conectados todo el
+          tiempo y, aun así, es fácil sentirse lejos de los demás: entre la presión, el estrés
+          y la carga de la escuela y de la vida social, a muchos jóvenes les quedan pocas
+          oportunidades de crear vínculos reales.
+        </p>
+        <p class="page-intro__text">
+          Ahí es donde un videojuego puede cambiarlo todo. Jugar es una forma sana de
+          encontrarnos: conectar, competir, colaborar, divertirnos y hacer amigos de los de
+          verdad. La pantalla no tiene por qué separar; también puede conectar.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ NUESTRA HISTORIA ============ -->
+    <section class="history-page">
+      <div class="container history-page__layout">
+
+        <div class="history-page__media">
+          <img src="assets/images/history/history.png" alt="Competidor sosteniendo un trofeo de cristal sobre el escenario de un torneo" width="500" height="280" loading="lazy">
+        </div>
+
+        <div class="section-head">
+          <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>Nuestra historia</p>
+          <h2 class="section-head__title">Aquí, la pantalla no los aísla, los une.</h2>
+          <p class="section-head__desc">
+            KOA nace para convertir ese punto de encuentro en una comunidad real. Encontramos en
+            el control y en la estrategia el puente para conectar, crear lazos inquebrantables,
+            compartir una pizza, reír en comunidad e invitar orgánicamente a todo el salón a casa.
+          </p>
+          <p class="section-head__desc">
+            Usamos esa conexión para construir comunidad, competencia, crecimiento y
+            pertenencia: nuestro superpoder es La Unión y la Mejora Continua. Juega. Compite.
+            Pertenece. KOA es TU casa.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ PROYECCIÓN A FUTURO ============ -->
+    <section class="page-intro page-intro--alt">
+      <div class="container">
+        <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>A futuro</p>
+        <h2 class="section-head__title">Proyección a futuro</h2>
+        <p class="page-intro__text">
+          Queremos ser la comunidad gamer más grande del mundo, conectando a millones de
+          personas a través del juego.
+        </p>
+        <p class="page-intro__text">
+          El camino: más torneos, un equipo representativo que lleve el nombre de KOA a la
+          escena internacional y una comunidad que se multiplica sin perder su esencia.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ CTA FINAL ============ -->
+    <section class="cta-band">
+      <div class="container cta-band__inner">
+        <h2 class="cta-band__title">Juega. Compite. Pertenece</h2>
+        <p class="cta-band__desc">Llegas a jugar y te quedas por la gente.</p>
+        <a href="#organizacion" class="btn btn--primary">Conoce la organización</a>
+      </div>
+    </section>
+
+    </section>
+
+    <!-- ============ CONTACTO (global: se alcanza desde cualquier vista con #contacto) ============ -->
+    <!-- Comunicación directa por canales independientes. ÚNICO lugar donde viven las URLs de
+         las redes de KOA (atributos data-* de esta sección); js/contact.js las aplica a las
+         tarjetas de abajo y a las filas equivalentes del footer.
+           data-instagram, data-whatsapp, data-tiktok, data-discord, data-x
+             URL completa del perfil o chat (solo http/https). Si un atributo está vacío, el
+             canal se oculta en Contacto y en el footer: nunca se muestra un enlace falso.
+             data-x sigue vacío hasta que exista la cuenta de X. Cuando haya URL real,
+             basta con escribirla aquí. -->
+    <section class="contact" id="contacto" aria-labelledby="contact-title"
+             data-instagram="https://www.instagram.com/koa.esports_mx/"
+             data-whatsapp="https://chat.whatsapp.com/CAX7kTUQhjNDlcl8fpBTUA"
+             data-tiktok="https://www.tiktok.com/@koa_esports?_r=1&amp;_t=ZS-9AH9SwZdWtB"
+             data-discord="https://discord.gg/rsghdX4Vf"
+             data-x="">
+      <div class="container contact__inner">
+
+        <div class="contact__intro">
+          <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>Contacto</p>
+          <h2 class="contact__title" id="contact-title">KOA es <span class="text-flame">TU casa</span></h2>
+          <p class="contact__desc">
+            Cuando la gente se une, todos ganan.
+          </p>
+        </div>
+
+        <ul class="channels">
+          <li>
+            <a class="channel" data-social="instagram">
+              <span class="channel__icon"><img src="assets/images/logo/instagram-logo.png" alt="" width="30" height="30" loading="lazy"></span>
+              <span class="channel__text">
+                <span class="channel__name">Instagram</span>
+              </span>
+              <span class="channel__state">Abrir</span>
+            </a>
+          </li>
+          <li>
+            <a class="channel" data-social="whatsapp">
+              <span class="channel__icon"><img src="assets/images/logo/whatsapp-logo.png" alt="" width="30" height="30" loading="lazy"></span>
+              <span class="channel__text">
+                <span class="channel__name">WhatsApp</span>
+                <span class="channel__hint">Comunidad</span>
+              </span>
+              <span class="channel__state">Abrir</span>
+            </a>
+          </li>
+          <li>
+            <a class="channel" data-social="tiktok">
+              <span class="channel__icon"><img class="social-logo--tiktok" src="assets/images/logo/Tiktok-logo.webp" alt="" width="30" height="30" loading="lazy"></span>
+              <span class="channel__text">
+                <span class="channel__name">TikTok</span>
+              </span>
+              <span class="channel__state">Abrir</span>
+            </a>
+          </li>
+          <li>
+            <a class="channel" data-social="discord">
+              <span class="channel__icon"><img src="assets/images/logo/Discord-logo.webp" alt="" width="30" height="30" loading="lazy"></span>
+              <span class="channel__text">
+                <span class="channel__name">Discord</span>
+              </span>
+              <span class="channel__state">Abrir</span>
+            </a>
+          </li>
+          <li hidden>
+            <a class="channel" data-social="x">
+              <span class="channel__icon"><img src="assets/images/logo/x-logo.png" alt="" width="30" height="30" loading="lazy"></span>
+              <span class="channel__text">
+                <span class="channel__name">X</span>
+              </span>
+              <span class="channel__state">Abrir</span>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+
+      <div class="footer__top">
+        <div class="footer__brand-col">
+          <a href="#home" class="footer__brand">
+            <img src="assets/images/logo/koa-logo.png" alt="Logotipo de KOA" class="footer__logo" width="40" height="40">
+            <span class="footer__brand-name">KOA Sports</span>
+          </a>
+          <p class="footer__desc">
+            KOA es una plataforma enfocada en el desarrollo de comunidades a través de
+            experiencias deportivas, eSports y Wellness.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="footer__heading">Navegación</h3>
+          <ul class="footer__list">
+            <li><a href="#home">Inicio</a></li>
+            <li><a href="#organizacion">Organización</a></li>
+            <li><a href="#jugadores">Jugadores</a></li>
+            <li><a href="#torneos">Torneos</a></li>
+            <li><a href="#historial">Historial</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__heading">Contacto</h3>
+          <ul class="footer__list">
+            <li><a href="#contacto">Canales de contacto</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__heading">Síguenos</h3>
+          <!-- Las URLs vienen de los data-* de #contacto (js/contact.js); aquí no se repiten. -->
+          <ul class="footer__list footer__list--social">
+            <li>
+              <a class="footer__social-row" data-social="instagram">
+                <span class="social-tile"><img src="assets/images/logo/instagram-logo.png" alt="" width="22" height="22" loading="lazy"></span>
+                Instagram
+              </a>
+            </li>
+            <li>
+              <a class="footer__social-row" data-social="whatsapp">
+                <span class="social-tile"><img src="assets/images/logo/whatsapp-logo.png" alt="" width="22" height="22" loading="lazy"></span>
+                WhatsApp
+              </a>
+            </li>
+            <li>
+              <a class="footer__social-row" data-social="tiktok">
+                <span class="social-tile"><img class="social-logo--tiktok" src="assets/images/logo/Tiktok-logo.webp" alt="" width="22" height="22" loading="lazy"></span>
+                TikTok
+              </a>
+            </li>
+            <li>
+              <a class="footer__social-row" data-social="discord">
+                <span class="social-tile"><img src="assets/images/logo/Discord-logo.webp" alt="" width="22" height="22" loading="lazy"></span>
+                Discord
+              </a>
+            </li>
+            <li hidden>
+              <a class="footer__social-row" data-social="x">
+                <span class="social-tile"><img src="assets/images/logo/x-logo.png" alt="" width="22" height="22" loading="lazy"></span>
+                X
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 KOA Sports. Todos los derechos reservados.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ============ FICHA DE JUGADOR (diálogo modal) ============ -->
+  <dialog class="player-dialog" id="playerDialog" aria-label="Ficha del jugador">
+    <div class="player-dialog__panel">
+      <button type="button" class="player-dialog__close" data-dialog-close aria-label="Cerrar ficha del jugador">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg>
+      </button>
+      <div class="player-dialog__media">
+        <img id="playerDialogImg" src="" alt="" width="400" height="500">
+        <span class="player-card__tag" id="playerDialogTag"></span>
+      </div>
+      <div class="player-dialog__body">
+        <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>Ficha del jugador</p>
+        <h3 class="player-dialog__name" id="playerDialogName"></h3>
+        <div class="player-card__mains" id="playerDialogMains"></div>
+        <p class="player-dialog__desc" id="playerDialogDesc"></p>
+        <div class="player-card__social" id="playerDialogSocial" hidden></div>
+        <a href="#roster" class="btn btn--outline btn--sm player-dialog__more" data-dialog-close>Ver roster completo</a>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="js/main.js"></script>
+  <script src="js/carousel.js"></script>
+  <script src="js/tournaments.js"></script>
+  <script src="js/players.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>

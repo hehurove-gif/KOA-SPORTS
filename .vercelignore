@@ -1,0 +1,4 @@
+# Archivos de desarrollo: no se publican en Vercel (de lo contrario se servirían
+# como archivos estáticos en /test/… y /scripts/…).
+test
+scripts

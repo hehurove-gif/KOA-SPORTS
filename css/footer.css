@@ -1,0 +1,163 @@
+/* ==========================================================================
+   KOA — FOOTER
+   Pie de página global, presente en todas las páginas del sitio.
+   Mantiene el mismo lenguaje visual: fondo oscuro, acento dorado→rojo,
+   esquinas cortadas en los elementos interactivos.
+   ========================================================================== */
+
+.site-footer {
+  background-color: var(--panel);
+  border-top: 1px solid var(--line);
+  padding-block: var(--space-8) var(--space-6);
+}
+
+.footer__top {
+  display: grid;
+  grid-template-columns: 1.3fr 0.8fr 1fr 1fr;
+  gap: var(--space-8);
+  padding-bottom: var(--space-8);
+  border-bottom: 1px solid var(--line);
+}
+
+/* ---- Columna: marca ---- */
+
+.footer__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.footer__logo {
+  width: 40px;
+  height: 40px;
+}
+
+.footer__brand-name {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.footer__desc {
+  color: var(--ink-muted);
+  max-width: 34ch;
+  font-size: var(--fs-sm);
+}
+
+/* ---- Columnas: listas ---- */
+
+.footer__heading {
+  font-family: var(--font-display);
+  font-size: var(--fs-base);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  margin-bottom: var(--space-5);
+}
+
+.footer__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footer__list a {
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+  transition: color var(--dur) var(--ease);
+}
+
+.footer__list a:hover {
+  color: var(--ember);
+}
+
+/* ---- Redes sociales ----
+   Cada fila (<a class="footer__social-row" data-social="…">) es un enlace real:
+   js/contact.js le pone la URL de #contacto y, si no hay URL, oculta la fila.
+   Los iconos van sobre un azulejo claro para que se lean sobre el tema oscuro. */
+
+.footer__social-row {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.social-tile {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  background: var(--ink);
+  color: var(--void);
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+}
+
+.social-tile[hidden] {
+  display: none;
+}
+
+.social-tile img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.social-tile svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ---- Franja inferior ---- */
+
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  padding-top: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.footer__copy {
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+}
+
+/* ==========================================================================
+   RESPONSIVE — FOOTER
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  .footer__top {
+    grid-template-columns: 1fr 1fr;
+    row-gap: var(--space-7);
+  }
+
+  .footer__brand-col {
+    grid-column: 1 / -1;
+  }
+
+  .footer__desc {
+    max-width: 46ch;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-footer {
+    padding-block: var(--space-7) var(--space-5);
+  }
+
+  .footer__top {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+}

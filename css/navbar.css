@@ -1,0 +1,187 @@
+/* ==========================================================================
+   KOA — NAVBAR
+   Transparente sobre el Hero, sólida al hacer scroll (clase .navbar--scrolled
+   añadida por js/main.js). El logo oscuro (koa-logo.png) se usa en toda la
+   navbar porque su propio fondo gris oscuro se integra con el tema oscuro
+   del sitio y sus tonos dorado/rojo mantienen alto contraste en ambos
+   estados. La variante clara (koa-logo-inverted.png) queda reservada para
+   futuras secciones o páginas con fondo claro.
+   ========================================================================== */
+
+.navbar {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(to bottom, rgba(10, 10, 13, 0.75), rgba(10, 10, 13, 0));
+  border-bottom: 1px solid transparent;
+  transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+
+.navbar--scrolled {
+  background: rgba(10, 10, 13, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom-color: var(--line);
+  box-shadow: var(--shadow-sm);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  padding-block: var(--space-3);
+}
+
+.navbar__brand {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.navbar__logo {
+  width: 52px;
+  height: 52px;
+}
+
+/* ---- Navegación (desktop) ---- */
+
+.navbar__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-7);
+  margin-inline-start: auto;
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.navbar__link {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  padding-block: var(--space-2);
+  transition: color var(--dur) var(--ease);
+}
+
+.navbar__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  height: 2px;
+  background: var(--flame);
+  transition: right var(--dur) var(--ease);
+}
+
+.navbar__link:hover,
+.navbar__link.is-active {
+  color: var(--ember);
+}
+
+.navbar__link:hover::after,
+.navbar__link.is-active::after {
+  right: 0;
+}
+
+/* ---- Botón hamburguesa (oculto en desktop) ---- */
+
+.navbar__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.navbar__toggle-bar {
+  width: 24px;
+  height: 2px;
+  background: var(--ink);
+  transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
+}
+
+.navbar__toggle[aria-expanded="true"] .navbar__toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.navbar__toggle[aria-expanded="true"] .navbar__toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar__toggle[aria-expanded="true"] .navbar__toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ==========================================================================
+   RESPONSIVE — TABLET Y MÓVIL
+   Menú hamburguesa funcional: panel desplegable bajo la navbar.
+   ========================================================================== */
+
+@media (max-width: 960px) {
+  .navbar__toggle {
+    display: flex;
+  }
+
+  .navbar__nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    margin: 0;
+    background: rgba(10, 10, 13, 0.97);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--dur) var(--ease);
+  }
+
+  .navbar__nav.is-open {
+    max-height: 480px;
+  }
+
+  .navbar__links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: var(--space-4) var(--container-pad) 0;
+  }
+
+  .navbar__links li {
+    width: 100%;
+  }
+
+  .navbar__link {
+    display: block;
+    width: 100%;
+    padding-block: var(--space-4);
+    border-bottom: 1px solid var(--line);
+    font-size: var(--fs-lg);
+  }
+
+  .navbar__link::after {
+    display: none;
+  }
+
+  .navbar__cta {
+    margin: var(--space-5) var(--container-pad) var(--space-6);
+  }
+}

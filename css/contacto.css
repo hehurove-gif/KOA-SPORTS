@@ -1,0 +1,258 @@
+/* ==========================================================================
+   KOA — CONTACTO
+   Sección global #contacto (se alcanza desde cualquier vista): comunicación
+   directa por canales independientes — Instagram, WhatsApp, TikTok y Discord
+   (y X cuando exista su URL) — como tarjetas equivalentes. Mismo lenguaje
+   visual del sitio: superficies oscuras, esquinas cortadas, acento dorado→rojo.
+   Los iconos van sobre un "azulejo" claro para que se lean sobre el tema oscuro.
+   (Los iconos de redes del footer viven en footer.css.)
+   ========================================================================== */
+
+.contact {
+  position: relative;
+  background-color: var(--void);
+  padding-block: var(--space-9);
+  overflow: hidden;
+}
+
+/* Resplandor sutil con los colores del isotipo */
+.contact::before {
+  content: "";
+  position: absolute;
+  top: -25%;
+  right: -12%;
+  width: 62%;
+  aspect-ratio: 1;
+  background: radial-gradient(closest-side, rgba(254, 186, 23, 0.11), rgba(239, 43, 43, 0.05) 55%, transparent 75%);
+  pointer-events: none;
+}
+
+.contact__inner {
+  position: relative;
+}
+
+.contact__intro {
+  max-width: 640px;
+  margin: 0 auto var(--space-8);
+  text-align: center;
+}
+
+.contact__intro .eyebrow {
+  justify-content: center;
+}
+
+.contact__title {
+  font-size: clamp(2rem, 1.6rem + 1.8vw, 3rem);
+  margin-bottom: var(--space-4);
+}
+
+.contact__desc {
+  color: var(--ink-muted);
+  max-width: 46ch;
+  margin-inline: auto;
+}
+
+/* ---- Canales directos: tarjetas equivalentes ----
+   Cuatro por fila en escritorio. Los canales sin URL se ocultan (js/contact.js
+   pone hidden en su <li>), así que la rejilla se acomoda sola y, si una fila
+   queda incompleta (p.ej. cuando se active X), sus tarjetas se centran. */
+
+.channels {
+  --channels-per-row: 4;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-5);
+}
+
+.channels > li {
+  display: flex;
+  flex: 0 0 calc((100% - (var(--channels-per-row) - 1) * var(--space-5)) / var(--channels-per-row));
+  min-width: 0;
+}
+
+.channels > li[hidden] {
+  display: none;
+}
+
+.channel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  width: 100%;
+  padding: var(--space-6) var(--space-5);
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+  transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+/* Filo de acento al pasar el cursor / enfocar */
+.channel::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: var(--flame);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease);
+}
+
+.channel:hover,
+.channel:focus-visible {
+  border-color: var(--ember);
+  transform: translateY(-4px);
+}
+
+.channel:hover::before,
+.channel:focus-visible::before {
+  transform: scaleX(1);
+}
+
+.channel__icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  background: var(--ink);
+  color: var(--void);
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+}
+
+.channel__icon[hidden] {
+  display: none;
+}
+
+.channel__icon img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.channel__icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.channel__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  flex: 1;
+  min-width: 0;
+}
+
+.channel__name {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.channel__hint {
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+}
+
+.channel__state {
+  flex-shrink: 0;
+  padding: 4px 12px;
+  background: var(--flame);
+  color: #1a1000;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   RESPONSIVE — CONTACTO
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  /* Dos por fila */
+  .channels {
+    --channels-per-row: 2;
+  }
+}
+
+@media (max-width: 860px) {
+  /* Una columna: cada canal pasa a fila (icono | texto | estado) */
+  .channels {
+    --channels-per-row: 1;
+    gap: var(--space-3);
+  }
+
+  .channel {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-5);
+    clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
+  }
+
+  .channel__icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .channel__icon img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .channel__icon svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .channel__name {
+    font-size: 1.25rem;
+  }
+
+  .channel:hover,
+  .channel:focus-visible {
+    transform: translateX(4px);
+  }
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding-block: var(--space-8);
+  }
+
+  .contact__intro {
+    margin-bottom: var(--space-7);
+  }
+}
+
+@media (max-width: 560px) {
+  /* Icono | texto, con la etiqueta debajo del texto */
+  .channel {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    align-items: start;
+    column-gap: var(--space-4);
+    row-gap: var(--space-3);
+    padding: var(--space-4);
+  }
+
+  .channel__state {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  /* Canal sin recuadro de icono (su logo aún no está en assets/images/logo/):
+     el texto ocupa todo el ancho en vez de caer en la columna de 48px. */
+  .channel:has(.channel__icon[hidden]) {
+    grid-template-columns: 1fr;
+  }
+
+  .channel:has(.channel__icon[hidden]) .channel__state {
+    grid-column: 1;
+  }
+}

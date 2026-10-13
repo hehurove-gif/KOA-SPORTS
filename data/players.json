@@ -1,0 +1,82 @@
+[
+  {
+    "id": "proximamente-01",
+    "name": "Jugador por anunciar",
+    "tag": "Próximamente",
+    "image": "assets/images/players/Proximamente.webp",
+    "mainCharacter": "Por definir",
+    "secondaryCharacter": "Por definir",
+    "description": "El roster oficial de KOA se anunciará próximamente.",
+    "socials": {
+      "twitter": "",
+      "instagram": "",
+      "youtube": "",
+      "twitch": ""
+    },
+    "featured": true
+  },
+  {
+    "id": "proximamente-02",
+    "name": "Jugador por anunciar",
+    "tag": "Próximamente",
+    "image": "assets/images/players/Proximamente.webp",
+    "mainCharacter": "Por definir",
+    "secondaryCharacter": "Por definir",
+    "description": "El roster oficial de KOA se anunciará próximamente.",
+    "socials": {
+      "twitter": "",
+      "instagram": "",
+      "youtube": "",
+      "twitch": ""
+    },
+    "featured": false
+  },
+  {
+    "id": "proximamente-03",
+    "name": "Jugador por anunciar",
+    "tag": "Próximamente",
+    "image": "assets/images/players/Proximamente.webp",
+    "mainCharacter": "Por definir",
+    "secondaryCharacter": "Por definir",
+    "description": "El roster oficial de KOA se anunciará próximamente.",
+    "socials": {
+      "twitter": "",
+      "instagram": "",
+      "youtube": "",
+      "twitch": ""
+    },
+    "featured": false
+  },
+  {
+    "id": "proximamente-04",
+    "name": "Jugador por anunciar",
+    "tag": "Próximamente",
+    "image": "assets/images/players/Proximamente.webp",
+    "mainCharacter": "Por definir",
+    "secondaryCharacter": "Por definir",
+    "description": "El roster oficial de KOA se anunciará próximamente.",
+    "socials": {
+      "twitter": "",
+      "instagram": "",
+      "youtube": "",
+      "twitch": ""
+    },
+    "featured": false
+  },
+  {
+    "id": "proximamente-05",
+    "name": "Jugador por anunciar",
+    "tag": "Próximamente",
+    "image": "assets/images/players/Proximamente.webp",
+    "mainCharacter": "Por definir",
+    "secondaryCharacter": "Por definir",
+    "description": "El roster oficial de KOA se anunciará próximamente.",
+    "socials": {
+      "twitter": "",
+      "instagram": "",
+      "youtube": "",
+      "twitch": ""
+    },
+    "featured": false
+  }
+]

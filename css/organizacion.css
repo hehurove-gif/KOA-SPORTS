@@ -1,0 +1,149 @@
+/* ==========================================================================
+   KOA — ORGANIZACIÓN
+   Estilos exclusivos de la vista Organización: introducción institucional,
+   banner fotográfico, "Actualmente / A futuro", enfoque (reutiliza
+   .concept-card global) y "¿Por qué Smash?".
+   ========================================================================== */
+
+.org-intro {
+  background-color: var(--panel);
+  padding-block: var(--space-9);
+  text-align: center;
+}
+
+/* Misma transición compacta que .page-intro (hero → contenido). */
+.page-hero + .org-intro {
+  padding-block: var(--space-7);
+}
+
+.org-intro__text {
+  max-width: 700px;
+  margin-inline: auto;
+  color: var(--ink-muted);
+}
+
+.org-intro__text + .org-intro__text {
+  margin-top: var(--space-4);
+}
+
+/* ---- Banner fotográfico ---- */
+
+.org-photo {
+  position: relative;
+  background-color: var(--void);
+  padding-block: var(--space-9);
+}
+
+.org-photo__frame {
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 32px), calc(100% - 32px) 100%, 0 100%);
+}
+
+.org-photo__frame img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 21 / 8;
+  object-fit: cover;
+}
+
+/* ---- Actualmente / A futuro ---- */
+
+.pillars {
+  background-color: var(--panel);
+  padding-block: var(--space-9);
+}
+
+.pillars__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+.pillar-card {
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--ember);
+  padding: var(--space-7);
+}
+
+.pillar-card__title {
+  font-size: 1.6rem;
+  margin-bottom: var(--space-4);
+}
+
+.pillar-card__text {
+  color: var(--ink-muted);
+}
+
+/* ---- Enfoque (usa .concept-grid / .concept-card globales) ---- */
+
+.values {
+  background-color: var(--void);
+  padding-block: var(--space-9);
+}
+
+/* ---- ¿Por qué Smash? ---- */
+
+.smash {
+  background-color: var(--panel);
+  padding-block: var(--space-9);
+}
+
+.smash__inner {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+.smash__inner .about__lead {
+  margin-bottom: 0;
+}
+
+.smash__body {
+  color: var(--ink-muted);
+}
+
+.smash__body p + p {
+  margin-top: var(--space-4);
+}
+
+/* ==========================================================================
+   RESPONSIVE — ORGANIZACIÓN
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  .pillars__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .smash__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
+
+@media (max-width: 768px) {
+  .org-intro,
+  .org-photo,
+  .pillars,
+  .values,
+  .smash {
+    padding-block: var(--space-8);
+  }
+
+  .page-hero + .org-intro {
+    padding-block: calc(var(--space-5) + var(--space-4));
+  }
+
+  .org-photo__frame img {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+@media (max-width: 480px) {
+  .pillar-card {
+    padding: var(--space-6) var(--space-5);
+  }
+}

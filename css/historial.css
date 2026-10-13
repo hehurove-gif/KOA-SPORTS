@@ -1,0 +1,66 @@
+/* ==========================================================================
+   KOA — HISTORIAL
+   Vista previa del Home (.history) + estilos propios de la vista Historial
+   (imagen + texto de "Nuestra historia").
+   ========================================================================== */
+
+.history {
+  background-color: var(--void);
+  border-top: 1px solid var(--line);
+  padding-block: var(--space-9);
+}
+
+/* ==========================================================================
+   VISTA — Historial
+   ========================================================================== */
+
+.history-page {
+  padding-block: var(--space-9);
+}
+
+.history-page__layout {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: var(--space-9);
+  align-items: center;
+}
+
+.history-page__layout .section-head {
+  margin-bottom: 0;
+}
+
+/* Historia y Proyección comparten fondo: no se suma el padding de ambas. */
+.history-page + .page-intro--alt {
+  padding-top: 0;
+}
+
+.history-page__media img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  clip-path: polygon(24px 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%, 0 24px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ==========================================================================
+   RESPONSIVE — HISTORIAL
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  .history-page__layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+  }
+
+  .history-page__media {
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 768px) {
+  .history,
+  .history-page {
+    padding-block: var(--space-8);
+  }
+}
